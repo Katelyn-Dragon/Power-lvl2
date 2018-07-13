@@ -1,4 +1,6 @@
-
-public class Rocks {
-
+public class Rocks extends GameObject{
+	
+	public Rocks() {
+		
+	}
 }

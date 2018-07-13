@@ -1,4 +1,6 @@
+public class Humans extends GameObject {
 
-public class Humans {
-
+	public Humans() {
+		
+	}
 }

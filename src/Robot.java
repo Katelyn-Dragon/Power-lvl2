@@ -1,4 +1,6 @@
+public class Robot extends GameObject{
 
-public class Robot {
-
+	public Robot() {
+		
+	}
 }

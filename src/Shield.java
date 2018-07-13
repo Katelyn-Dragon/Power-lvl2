@@ -1,4 +1,6 @@
+public class Shield extends GameObject{
 
-public class Shield {
-
+	public Shield() {
+		
+	}
 }

@@ -19,13 +19,27 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	ObjectManager objectManager;
 	
+	
 	public static BufferedImage PowerImg;
+	
+	public static BufferedImage SpaceImg;
+	
+	public static BufferedImage GameOverImg;
+	
+	public static BufferedImage PCYImg;
 	
 	public GamePanel() {
 		objectManager = new ObjectManager();
+		
 		try {
 
             PowerImg = ImageIO.read(this.getClass().getResourceAsStream("Power.menu.png"));
+            
+            SpaceImg = ImageIO.read(this.getClass().getResourceAsStream("Space.png"));
+            
+            GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("Game Over.png"));
+            
+            PCYImg = ImageIO.read(this.getClass().getResourceAsStream("PCY.png"));
 
     } catch (IOException e) {
 
@@ -75,6 +89,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("pressed");
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			if (currentState == END_STATE) {
+				currentState = MENU_STATE;
+			} else if (currentState == MENU_STATE) {
+				currentState = GAME_STATE;
+			} else if (currentState == GAME_STATE) {
+				currentState = END_STATE;
+			}
+		}
 	}
 
 	@Override
@@ -88,7 +111,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void updateGameState() {
-
+		objectManager.update();
 	}
 
 	public void updateEndState() {
@@ -101,11 +124,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawGameState(Graphics g) {
-
+		g.drawImage(GamePanel.SpaceImg, 0, 0, 1536, 864, null);		
+		objectManager.draw(g);
 	}
 
 	public void drawEndState(Graphics g) {
-
+		g.drawImage(GamePanel.GameOverImg, 0, 0, 1536, 864, null);		
+		objectManager.draw(g);
 	}
 
 }

@@ -18,7 +18,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int currentState = MENU_STATE;
 	
 	ObjectManager objectManager;
-	
+	Humans humans;
 	
 	public static BufferedImage PowerImg;
 	
@@ -29,7 +29,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage PCYImg;
 	
 	public GamePanel() {
-		objectManager = new ObjectManager();
+		humans = new Humans(50,500);
+		objectManager = new ObjectManager(humans);
 		
 		try {
 
@@ -120,7 +121,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void drawMenuState(Graphics g) {
 		g.drawImage(GamePanel.PowerImg, 0, 0, 1536, 864, null);		
-		objectManager.draw(g);
 	}
 
 	public void drawGameState(Graphics g) {
@@ -130,7 +130,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void drawEndState(Graphics g) {
 		g.drawImage(GamePanel.GameOverImg, 0, 0, 1536, 864, null);		
-		objectManager.draw(g);
 	}
 
 }

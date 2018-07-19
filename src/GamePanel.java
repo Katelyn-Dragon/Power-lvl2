@@ -22,21 +22,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	public static BufferedImage PowerImg;
 	
-	public static BufferedImage SpaceImg;
+	public static BufferedImage BackgroundImg;
 	
 	public static BufferedImage GameOverImg;
 	
 	public static BufferedImage PCYImg;
 	
 	public GamePanel() {
-		humans = new Humans(50,500);
+		humans = new Humans(50,450);
 		objectManager = new ObjectManager(humans);
 		
 		try {
 
             PowerImg = ImageIO.read(this.getClass().getResourceAsStream("Power.menu.png"));
             
-            SpaceImg = ImageIO.read(this.getClass().getResourceAsStream("Space.png"));
+            BackgroundImg = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
             
             GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("Game Over.png"));
             
@@ -124,7 +124,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawGameState(Graphics g) {
-		g.drawImage(GamePanel.SpaceImg, 0, 0, 1536, 864, null);		
+		g.drawImage(GamePanel.BackgroundImg, 0, 0, 1536, 864, null);		
 		objectManager.draw(g);
 	}
 

@@ -2,6 +2,7 @@
 /GameObject.class
 /GamePanel.class
 /Humans.class
+/OSH.png
 /ObjectManager.class
 /PCY.png
 /Power.class
@@ -10,4 +11,4 @@
 /Rocks.class
 /Shield.class
 /Space.png
-/OSH.png
+/Background.png

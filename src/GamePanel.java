@@ -19,6 +19,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	ObjectManager objectManager;
 	Humans humans;
+	Robot robot;
 	
 	public static BufferedImage PowerImg;
 	
@@ -28,9 +29,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	public static BufferedImage PCYImg;
 	
+	public static BufferedImage RobotImg;
+	
 	public GamePanel() {
-		humans = new Humans(50,450);
-		objectManager = new ObjectManager(humans);
+		humans = new Humans(70,450);
+		robot = new Robot(350,80);
+		objectManager = new ObjectManager(humans, robot);
 		
 		try {
 
@@ -41,6 +45,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
             GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("Game Over.png"));
             
             PCYImg = ImageIO.read(this.getClass().getResourceAsStream("PCY.png"));
+            
+            RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
 
     } catch (IOException e) {
 

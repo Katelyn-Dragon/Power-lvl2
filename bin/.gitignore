@@ -1,16 +1,15 @@
 /Background.png
 /Game Over.png
-/OSH.png
-/PCY.png
-/Power.menu.png
-/Space.png
 /GameObject.class
 /GamePanel.class
 /Humans.class
+/OSH.png
 /ObjectManager.class
+/PCY.png
 /Power.class
+/Power.menu.png
 /Robot.class
+/Robot.png
 /Rocks.class
 /Shield.class
-/RF-05.png
-/Robot.png
+/Space.png

@@ -2,6 +2,8 @@ import java.awt.Graphics;
 
 public class Humans extends GameObject {
 
+	boolean isShooting;
+	
 	public Humans(int x, int y) {
 		super(x, y);
 	}
@@ -11,6 +13,11 @@ public class Humans extends GameObject {
 	}
 	
 	public void draw(Graphics g) {
-		 g.drawImage(GamePanel.PCYImg, x, y, null);
+		if (isShooting == false) {
+			g.drawImage(GamePanel.PCYImg, x, y, null);
+		}
+		else {
+			g.drawImage(GamePanel.ShootImg, x, y, null);
+		}
 	}
 }

@@ -16,52 +16,56 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
-	
+
 	ObjectManager objectManager;
 	Humans humans;
 	Robot robot;
-	
+
 	public static BufferedImage PowerImg;
-	
+
 	public static BufferedImage BackgroundImg;
-	
+
 	public static BufferedImage GameOverImg;
-	
+
 	public static BufferedImage PCYImg;
-	
+
 	public static BufferedImage RobotImg;
 	
+	public static BufferedImage ShootImg;
+
 	public GamePanel() {
-		humans = new Humans(70,450);
-		robot = new Robot(350,80);
+		humans = new Humans(70, 450);
+		robot = new Robot(350, 80);
 		objectManager = new ObjectManager(humans, robot);
-		
+
 		try {
 
-            PowerImg = ImageIO.read(this.getClass().getResourceAsStream("Power.menu.png"));
-            
-            BackgroundImg = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
-            
-            GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("GameOver.png"));
-            
-            PCYImg = ImageIO.read(this.getClass().getResourceAsStream("PCY.png"));
-            
-            RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
+			PowerImg = ImageIO.read(this.getClass().getResourceAsStream("Power.menu.png"));
 
-    } catch (IOException e) {
+			BackgroundImg = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
 
-            // TODO Auto-generated catch block
+			GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("GameOver.png"));
 
-            e.printStackTrace();
+			PCYImg = ImageIO.read(this.getClass().getResourceAsStream("PCY.png"));
 
-    }
+			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
+			
+			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Shoot.png"));
+
+		} catch (IOException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
 
 	}
 
 	public void startGame() {
 
-	} 
-	
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -85,7 +89,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		repaint();
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -105,12 +109,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				currentState = END_STATE;
 			}
 		}
+		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+			humans.isShooting = true;
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("released");
+		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+			humans.isShooting = false;
+		}
 	}
 
 	public void updateMenuState() {
@@ -126,16 +136,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawMenuState(Graphics g) {
-		g.drawImage(GamePanel.PowerImg, 0, 0, 1536, 864, null);		
+		g.drawImage(GamePanel.PowerImg, 0, 0, 1536, 864, null);
 	}
 
 	public void drawGameState(Graphics g) {
-		g.drawImage(GamePanel.BackgroundImg, 0, 0, 1536, 864, null);		
+		g.drawImage(GamePanel.BackgroundImg, 0, 0, 1536, 864, null);
 		objectManager.draw(g);
 	}
 
 	public void drawEndState(Graphics g) {
-		g.drawImage(GamePanel.GameOverImg, 0, 0, 1536, 864, null);		
+		g.drawImage(GamePanel.GameOverImg, 0, 0, 1536, 864, null);
 	}
 
 }

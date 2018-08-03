@@ -32,6 +32,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage RobotImg;
 	
 	public static BufferedImage ShootImg;
+	
+	public static BufferedImage StepImg;
 
 	public GamePanel() {
 		humans = new Humans(70, 450);
@@ -50,7 +52,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
 			
-			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Shoot.png"));
+			ShootImg = ImageIO.read(this.getClass().getResourceAsStream("Shoot.png"));
+			
+			StepImg = ImageIO.read(this.getClass().getResourceAsStream("Step.png"));
 
 		} catch (IOException e) {
 
@@ -112,6 +116,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
 			humans.isShooting = true;
 		}
+		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			humans.walking = true;
+		}
+		repaint();
 	}
 
 	@Override
@@ -120,6 +128,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		System.out.println("released");
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
 			humans.isShooting = false;
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			humans.walking = false;
 		}
 	}
 

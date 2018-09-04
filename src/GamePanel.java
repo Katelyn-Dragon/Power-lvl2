@@ -27,13 +27,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public static BufferedImage GameOverImg;
 
-	public static BufferedImage PCYImg;
+	public static BufferedImage PCY1Img;
 
 	public static BufferedImage RobotImg;
 	
 	public static BufferedImage ShootImg;
 	
-	public static BufferedImage StepImg;
 
 	public GamePanel() {
 		humans = new Humans(70, 450);
@@ -48,13 +47,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 			GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("GameOver.png"));
 
-			PCYImg = ImageIO.read(this.getClass().getResourceAsStream("PCY.png"));
+			PCY1Img = ImageIO.read(this.getClass().getResourceAsStream("PCY1.png"));
 
 			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
 			
 			ShootImg = ImageIO.read(this.getClass().getResourceAsStream("Shoot.png"));
 			
-			StepImg = ImageIO.read(this.getClass().getResourceAsStream("Step.png"));
+			
 
 		} catch (IOException e) {
 

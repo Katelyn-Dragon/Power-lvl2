@@ -17,7 +17,7 @@ public class Humans extends GameObject {
 		
 		if (isShooting == false & walking == false) {
 			
-			g.drawImage(GamePanel.PCYImg, x, y, null);
+			g.drawImage(GamePanel.PCY1Img, x, y, null);
 			
 		} 
 		else if (isShooting == true & walking == false)
@@ -26,7 +26,7 @@ public class Humans extends GameObject {
 			
 		} 
 		else if (isShooting == false & walking == true) {
-			g.drawImage(GamePanel.StepImg, x, y, null);
+		
 		}
 
 	}

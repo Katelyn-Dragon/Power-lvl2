@@ -4,10 +4,11 @@ import javax.swing.JFrame;
 
 public class Power {
 	public static void main(String[] args) {
+		
+		System.out.println();
 		Power power = new Power();
 		power.setup();
 	}
-	
 	JFrame gameFrame;
 	final static int width = 1536;
 	final static int height = 864;

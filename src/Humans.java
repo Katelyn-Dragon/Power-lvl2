@@ -12,6 +12,10 @@ public class Humans extends GameObject {
 
 	public void update() {
 		super.update();
+		System.out.println("WALKING: " + walking);
+		if (walking == true) {
+			x += 10;
+		}
 	}
 
 	public void draw(Graphics g) {
@@ -23,14 +27,26 @@ public class Humans extends GameObject {
 			g.drawImage(GamePanel.ShootImg, x, y, null);
 		} 
 		else if (isShooting == false & walking == true) {
-			if (walktimer < 100) {
+			if (walktimer < 50) {
 				g.drawImage(GamePanel.PCY2Img, x, y, null);
 			}
-			else if (walktimer < 200) {
+			else if (walktimer < 100) {
 				g.drawImage(GamePanel.PCY3Img, x, y, null);
 			}
-			else if (walktimer < 300) {
+			else if (walktimer < 150) {
 				g.drawImage(GamePanel.PCY4Img, x, y, null);
+			}
+			else if (walktimer < 200) {
+				g.drawImage(GamePanel.PCY5Img, x, y, null);
+			}
+			else if(walktimer < 250) {
+				g.drawImage(GamePanel.PCY6Img, x, y, null);
+			}
+			else if (walktimer < 300) {
+				g.drawImage(GamePanel.PCY7Img, x, y, null);
+			}
+			else if (walktimer < 350) {
+				g.drawImage(GamePanel.PCY1Img, x, y, null);
 			}
 			else {
 				walktimer = 0;

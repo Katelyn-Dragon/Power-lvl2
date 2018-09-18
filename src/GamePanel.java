@@ -30,15 +30,20 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage PCY1Img;
 
 	public static BufferedImage RobotImg;
-	
+
 	public static BufferedImage ShootImg;
-	
+
 	public static BufferedImage PCY2Img;
-	
+
 	public static BufferedImage PCY3Img;
-	
+
 	public static BufferedImage PCY4Img;
-	
+
+	public static BufferedImage PCY5Img;
+
+	public static BufferedImage PCY6Img;
+
+	public static BufferedImage PCY7Img;
 
 	public GamePanel() {
 		humans = new Humans(70, 450);
@@ -54,18 +59,22 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("GameOver.png"));
 
 			PCY1Img = ImageIO.read(this.getClass().getResourceAsStream("PCY1.png"));
-			
+
 			PCY2Img = ImageIO.read(this.getClass().getResourceAsStream("PCY2.png"));
-			
+
 			PCY3Img = ImageIO.read(this.getClass().getResourceAsStream("PCY3.png"));
-			
+
 			PCY4Img = ImageIO.read(this.getClass().getResourceAsStream("PCY4.png"));
 
+			PCY5Img = ImageIO.read(this.getClass().getResourceAsStream("PCY5.png"));
+
+			PCY6Img = ImageIO.read(this.getClass().getResourceAsStream("PCY6.png"));
+
+			PCY7Img = ImageIO.read(this.getClass().getResourceAsStream("PCY7.png"));
+
 			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
-			
+
 			ShootImg = ImageIO.read(this.getClass().getResourceAsStream("Shoot.png"));
-			
-			
 
 		} catch (IOException e) {
 
@@ -84,6 +93,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		objectManager.update();
+		humans.update();
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
@@ -113,9 +124,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
 		// TODO Auto-generated method stub
 		System.out.println("pressed");
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+		if (key == KeyEvent.VK_ENTER) {
 			if (currentState == END_STATE) {
 				currentState = MENU_STATE;
 			} else if (currentState == MENU_STATE) {
@@ -124,12 +136,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				currentState = END_STATE;
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+		if (key == KeyEvent.VK_SHIFT) {
 			humans.isShooting = true;
-		}
-		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		} else if (key == KeyEvent.VK_RIGHT) {
+			System.out.println("right");
 			humans.walking = true;
 		}
+
 		repaint();
 	}
 
@@ -139,8 +152,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		System.out.println("released");
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
 			humans.isShooting = false;
-		}
-		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			humans.walking = false;
 		}
 	}

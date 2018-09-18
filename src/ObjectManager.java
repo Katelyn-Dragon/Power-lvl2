@@ -13,6 +13,7 @@ public class ObjectManager {
 	public void update() {
 		humans.update();
 		robot.update();
+		
 	}
 	
 	public void draw(Graphics g) {

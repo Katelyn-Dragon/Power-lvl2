@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 public class Power {
 	public static void main(String[] args) {
 		
-		System.out.println();
 		Power power = new Power();
 		power.setup();
 	}

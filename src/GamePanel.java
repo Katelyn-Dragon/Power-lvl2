@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
@@ -20,6 +21,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	ObjectManager objectManager;
 	Humans humans;
 	Robot robot;
+	Timer timer;
 
 	public static BufferedImage PowerImg;
 
@@ -27,28 +29,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public static BufferedImage GameOverImg;
 
-	public static BufferedImage PCY1Img;
-
 	public static BufferedImage RobotImg;
 
 	public static BufferedImage ShootImg;
-
-	public static BufferedImage PCY2Img;
-
-	public static BufferedImage PCY3Img;
-
-	public static BufferedImage PCY4Img;
-
-	public static BufferedImage PCY5Img;
-
-	public static BufferedImage PCY6Img;
-
-	public static BufferedImage PCY7Img;
+	
 
 	public GamePanel() {
 		humans = new Humans(70, 450);
 		robot = new Robot(350, 80);
 		objectManager = new ObjectManager(humans, robot);
+		timer = new Timer(5000/60, this);
+		timer.start();
 
 		try {
 
@@ -57,20 +48,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			BackgroundImg = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
 
 			GameOverImg = ImageIO.read(this.getClass().getResourceAsStream("GameOver.png"));
-
-			PCY1Img = ImageIO.read(this.getClass().getResourceAsStream("PCY1.png"));
-
-			PCY2Img = ImageIO.read(this.getClass().getResourceAsStream("PCY2.png"));
-
-			PCY3Img = ImageIO.read(this.getClass().getResourceAsStream("PCY3.png"));
-
-			PCY4Img = ImageIO.read(this.getClass().getResourceAsStream("PCY4.png"));
-
-			PCY5Img = ImageIO.read(this.getClass().getResourceAsStream("PCY5.png"));
-
-			PCY6Img = ImageIO.read(this.getClass().getResourceAsStream("PCY6.png"));
-
-			PCY7Img = ImageIO.read(this.getClass().getResourceAsStream("PCY7.png"));
 
 			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
 
@@ -95,6 +72,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 		objectManager.update();
 		humans.update();
+		System.out.println("action");
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
@@ -140,7 +118,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			humans.isShooting = true;
 		} else if (key == KeyEvent.VK_RIGHT) {
 			System.out.println("right");
-			humans.walking = true;
+			humans.forwards = true;
+		} else if (key == KeyEvent.VK_LEFT) {
+			System.out.println("left");
+			humans.backwards = true;
 		}
 
 		repaint();
@@ -153,7 +134,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
 			humans.isShooting = false;
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			humans.walking = false;
+			humans.forwards = false;
+		} else if (e.getKeyCode() ==  KeyEvent.VK_LEFT) {
+			humans.backwards = false;
 		}
 	}
 

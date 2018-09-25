@@ -1,56 +1,101 @@
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Humans extends GameObject {
 
 	boolean isShooting;
-	boolean walking;
+	boolean forwards;
+	boolean backwards;
 	int walktimer = 0;
+	BufferedImage[] walk;
+	int walkIndex = 0;
+	
+	public static BufferedImage PCY1Img;
+	
+	public static BufferedImage PCY2Img;
+
+	public static BufferedImage PCY3Img;
+
+	public static BufferedImage PCY4Img;
+
+	public static BufferedImage PCY5Img;
+
+	public static BufferedImage PCY6Img;
+
+	public static BufferedImage PCY7Img;
+
 
 	public Humans(int x, int y) {
 		super(x, y);
+		walk = new BufferedImage[7];
+		
+		try {
+			
+		walk[0] = ImageIO.read(this.getClass().getResourceAsStream("PCY1.png"));
+		
+		walk[1] = ImageIO.read(this.getClass().getResourceAsStream("PCY2.png"));
+
+		walk[2] = ImageIO.read(this.getClass().getResourceAsStream("PCY3.png"));
+
+		walk[3] = ImageIO.read(this.getClass().getResourceAsStream("PCY4.png"));
+
+		walk[4] = ImageIO.read(this.getClass().getResourceAsStream("PCY5.png"));
+
+		walk[5] = ImageIO.read(this.getClass().getResourceAsStream("PCY6.png"));
+
+		walk[6] = ImageIO.read(this.getClass().getResourceAsStream("PCY7.png"));
+		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	public void update() {
 		super.update();
-		System.out.println("WALKING: " + walking);
-		if (walking == true) {
+		if (forwards == true) {
 			x += 10;
 		}
 	}
 
 	public void draw(Graphics g) {
 		
-		if (isShooting == false & walking == false) {
-			g.drawImage(GamePanel.PCY1Img, x, y, null);
+		if (isShooting == false && forwards == false) {
+			g.drawImage(walk[0], x, y, null);
 		} 
-		else if (isShooting == true & walking == false) {
+		else if (isShooting == true && forwards == false) {
 			g.drawImage(GamePanel.ShootImg, x, y, null);
 		} 
-		else if (isShooting == false & walking == true) {
+		else if (isShooting == false && forwards == true) {
 			if (walktimer < 50) {
-				g.drawImage(GamePanel.PCY2Img, x, y, null);
+				walkIndex = 0;
 			}
 			else if (walktimer < 100) {
-				g.drawImage(GamePanel.PCY3Img, x, y, null);
+				walkIndex = 1;
 			}
 			else if (walktimer < 150) {
-				g.drawImage(GamePanel.PCY4Img, x, y, null);
+				walkIndex = 2;
 			}
 			else if (walktimer < 200) {
-				g.drawImage(GamePanel.PCY5Img, x, y, null);
-			}
+				walkIndex = 3;			}
 			else if(walktimer < 250) {
-				g.drawImage(GamePanel.PCY6Img, x, y, null);
+				walkIndex = 4;
 			}
 			else if (walktimer < 300) {
-				g.drawImage(GamePanel.PCY7Img, x, y, null);
+				walkIndex = 5;
 			}
 			else if (walktimer < 350) {
-				g.drawImage(GamePanel.PCY1Img, x, y, null);
+				walkIndex = 6;
 			}
+			
 			else {
 				walktimer = 0;
-			}
+			} 
+			g.drawImage(walk[walkIndex], x, y, null);
 			walktimer++;
 		}
 

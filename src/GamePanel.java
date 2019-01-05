@@ -32,13 +32,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage RobotImg;
 
 	public static BufferedImage ShootImg;
-	
 
 	public GamePanel() {
 		humans = new Humans(70, 450);
 		robot = new Robot(350, 80);
 		objectManager = new ObjectManager(humans, robot);
-		timer = new Timer(5000/60, this);
+		timer = new Timer(5000 / 60, this);
 		timer.start();
 
 		try {
@@ -135,7 +134,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			humans.isShooting = false;
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			humans.forwards = false;
-		} else if (e.getKeyCode() ==  KeyEvent.VK_LEFT) {
+		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			humans.backwards = false;
 		}
 	}

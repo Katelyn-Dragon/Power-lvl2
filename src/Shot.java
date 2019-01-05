@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -7,7 +8,8 @@ public class Shot extends GameObject{
 		super(x,y);
 	}
 	public void update() {
-		
+		super.update();
+		x += 10;
 	}
 	public void draw(Graphics g) {
 		g.setColor(Color.GREEN);

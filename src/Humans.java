@@ -57,10 +57,10 @@ public class Humans extends GameObject {
 	public void update() {
 		super.update();
 		if (forwards == true) {
-			x += 10;
+			x += 7;
 		}
 		if (backwards == true) {
-			x-= 10;
+			x-= 5;
 		}
 	}
 
@@ -68,9 +68,13 @@ public class Humans extends GameObject {
 
 		if (isShooting == false && forwards == false && backwards == false) {
 			g.drawImage(walk[0], x, y, null);
-		} else if (isShooting == true && forwards == false && backwards == false) {
+		} 
+		
+		else if (isShooting == true && forwards == false && backwards == false) {
 			g.drawImage(GamePanel.ShootImg, x, y, null);
-		} else if (isShooting == false && forwards == true && backwards == false) {
+		} 
+		
+		else if (isShooting == false && forwards == true && backwards == false) {
 			if (walktimer < 50) {
 				walkIndex = 0;
 			} else if (walktimer < 100) {

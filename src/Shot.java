@@ -9,11 +9,10 @@ public class Shot extends GameObject{
 	}
 	public void update() {
 		super.update();
-		x += 10;
+		x+= 20;
 	}
 	public void draw(Graphics g) {
 		g.setColor(Color.GREEN);
-		g.drawRect(x, y, 5, 1);
-		g.fillRect(x, y, 5, 1);
+		g.drawRect(x, y, 40, 1);
 	}
 }

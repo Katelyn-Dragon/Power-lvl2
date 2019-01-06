@@ -1,4 +1,4 @@
-import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -70,7 +70,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		objectManager.update();
-		humans.update();
 		System.out.println("action");
 		if (currentState == MENU_STATE) {
 			updateMenuState();
@@ -115,6 +114,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		if (key == KeyEvent.VK_SHIFT) {
 			humans.isShooting = true;
+			objectManager.playerShot();
 		} else if (key == KeyEvent.VK_RIGHT) {
 			System.out.println("right");
 			humans.forwards = true;

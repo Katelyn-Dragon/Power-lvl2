@@ -57,7 +57,7 @@ public class Humans extends GameObject {
 	public void update() {
 		super.update();
 		if (forwards == true) {
-			x += 7;
+			x += 10;
 		}
 		if (backwards == true) {
 			x-= 5;

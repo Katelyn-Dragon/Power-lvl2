@@ -11,6 +11,6 @@ public class Robot extends GameObject{
 	}
 	
 	public void draw(Graphics g) {
-		 g.drawImage(GamePanel.RobotImg, x, y, null);
+		// g.drawImage(GamePanel.RobotImg, x, y, null);
 	}
 }

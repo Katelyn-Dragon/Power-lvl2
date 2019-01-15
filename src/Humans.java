@@ -27,6 +27,8 @@ public class Humans extends GameObject {
 
 	public static BufferedImage PCY7Img;
 
+	public static BufferedImage KJD;
+	
 	public Humans(int x, int y) {
 		super(x, y);
 		walk = new BufferedImage[7];
@@ -47,6 +49,8 @@ public class Humans extends GameObject {
 
 			walk[6] = ImageIO.read(this.getClass().getResourceAsStream("PCY7.png"));
 
+			KJD = ImageIO.read(this.getClass().getResourceAsStream("KJD.png"));
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -95,6 +99,8 @@ public class Humans extends GameObject {
 			g.drawImage(walk[walkIndex], x, y, null);
 			walktimer++;
 		}
+		g.drawImage(KJD, 1000, 450, null);
+		
 		if (isShooting == false && forwards == false && backwards == true) {
 			if (walktimer < 50) {
 				walkIndex = 6;

@@ -20,6 +20,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	ObjectManager objectManager;
 	Humans humans;
+	Enemy enemies;
 	Robot robot;
 	Timer timer;
 
@@ -32,11 +33,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage RobotImg;
 
 	public static BufferedImage ShootImg;
+	
+	public static BufferedImage Shoot2Img;
 
 	public GamePanel() {
 		humans = new Humans(70, 450);
+		enemies = new Enemy(1000,450);
 		robot = new Robot(350, 80);
-		objectManager = new ObjectManager(humans, robot);
+		objectManager = new ObjectManager(humans, robot, enemies);
 		timer = new Timer(5000 / 60, this);
 		timer.start();
 
@@ -51,6 +55,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
 
 			ShootImg = ImageIO.read(this.getClass().getResourceAsStream("Shoot.png"));
+			
+			Shoot2Img = ImageIO.read(this.getClass().getResourceAsStream("Shoot2.png"));
 
 		} catch (IOException e) {
 

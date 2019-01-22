@@ -3,6 +3,7 @@
 /GameOver.png
 /GamePanel.class
 /Humans.class
+/KJD.png
 /OSH.png
 /ObjectManager.class
 /PCY1.png
@@ -21,4 +22,6 @@
 /Shoot.png
 /Shot.class
 /Space.png
-/KJD.png
+/KJD.Shooting.png
+/Shoot2.png
+/Enemy.class

@@ -34,7 +34,7 @@ public class Enemy extends GameObject{
 		Random rand= new Random();
 		int randomNum = rand.nextInt((2-1)+1)+1;
 		if (kShooting == true) {
-			g.drawImage(GamePanel.Shoot2Img, 1000, 450, null);
+			//g.drawImage(GamePanel.Shoot2Img, 1000, 450, null);
 		}
 	}
 }

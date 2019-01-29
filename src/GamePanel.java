@@ -123,10 +123,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			objectManager.playerShot();
 		} else if (key == KeyEvent.VK_RIGHT) {
 			System.out.println("right");
-			humans.forwards = true;
+			//humans.forwards = true;
 		} else if (key == KeyEvent.VK_LEFT) {
 			System.out.println("left");
-			humans.backwards = true;
+			//humans.backwards = true;
 		}
 
 		repaint();

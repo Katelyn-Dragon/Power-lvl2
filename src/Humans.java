@@ -58,12 +58,12 @@ public class Humans extends GameObject {
 
 	public void update() {
 		super.update();
-		if (forwards == true) {
-			x += 10;
-		}
-		if (backwards == true) {
-			x-= 5;
-		}
+//		if (forwards == true) {
+//			x += 7;
+//		}
+//		if (backwards == true) {
+//			x-= 5;
+//		}
 	}
 
 	public void draw(Graphics g) {
@@ -76,51 +76,51 @@ public class Humans extends GameObject {
 			g.drawImage(GamePanel.ShootImg, x, y, null);
 		} 
 		
-		else if (isShooting == false && forwards == true && backwards == false) {
-			if (walktimer < 50) {
-				walkIndex = 0;
-			} else if (walktimer < 100) {
-				walkIndex = 1;
-			} else if (walktimer < 150) {
-				walkIndex = 2;
-			} else if (walktimer < 200) {
-				walkIndex = 3;
-			} else if (walktimer < 250) {
-				walkIndex = 4;
-			} else if (walktimer < 300) {
-				walkIndex = 5;
-			} else if (walktimer < 350) {
-				walkIndex = 6;
-			} else {
-				walktimer = 0;
-			}
-			g.drawImage(walk[walkIndex], x, y, null);
-			walktimer++;
-		}
+//		else if (isShooting == false && forwards == true && backwards == false) {
+//			if (walktimer < 50) {
+//				walkIndex = 0;
+//			} else if (walktimer < 100) {
+//				walkIndex = 1;
+//			} else if (walktimer < 150) {
+//				walkIndex = 2;
+//			} else if (walktimer < 200) {
+//				walkIndex = 3;
+//			} else if (walktimer < 250) {
+//				walkIndex = 4;
+//			} else if (walktimer < 300) {
+//				walkIndex = 5;
+//			} else if (walktimer < 350) {
+//				walkIndex = 6;
+//			} else {
+//				walktimer = 0;
+//			}
+//			g.drawImage(walk[walkIndex], x, y, null);
+//			walktimer++;
+//		}
 		
-		if (isShooting == false && forwards == false && backwards == true) {
-			if (walktimer < 50) {
-				walkIndex = 6;
-			} else if (walktimer < 100) {
-				walkIndex = 5;
-			} else if (walktimer < 150) {
-				walkIndex = 4;
-			} else if (walktimer < 200) {
-				walkIndex = 3;
-			} else if (walktimer < 250) {
-				walkIndex = 3;
-			} else if (walktimer < 300) {
-				walkIndex = 2;
-			} else if (walktimer < 350) {
-				walkIndex = 1;
-			} else if (walktimer < 400) {
-				walkIndex = 0;
-			} else {
-				walkIndex = 0;
-			}
-			g.drawImage(walk[walkIndex], x, y, null);
-			walktimer++;
-		}
+//		if (isShooting == false && forwards == false && backwards == true) {
+//			if (walktimer < 50) {
+//				walkIndex = 6;
+//			} else if (walktimer < 100) {
+//				walkIndex = 5;
+//			} else if (walktimer < 150) {
+//				walkIndex = 4;
+//			} else if (walktimer < 200) {
+//				walkIndex = 3;
+//			} else if (walktimer < 250) {
+//				walkIndex = 3;
+//			} else if (walktimer < 300) {
+//				walkIndex = 2;
+//			} else if (walktimer < 350) {
+//				walkIndex = 1;
+//			} else if (walktimer < 400) {
+//				walkIndex = 0;
+//			} else {
+//				walkIndex = 0;
+//			}
+//			g.drawImage(walk[walkIndex], x, y, null);
+//			walktimer++;
+//		}
 	}
 
 }

@@ -76,7 +76,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		objectManager.update();
-		System.out.println("action");
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
@@ -127,6 +126,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} else if (key == KeyEvent.VK_LEFT) {
 			System.out.println("left");
 			//humans.backwards = true;
+		} else if (key == KeyEvent.VK_DOWN) {
+			System.out.println("down");
+			enemies.crouching = true;
+			enemies.standing = false;
 		}
 
 		repaint();
@@ -141,7 +144,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			humans.forwards = false;
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			humans.backwards = false;
+			humans.backwards = false;	
+		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			enemies.crouching = false;
+			enemies.standing = true;
 		}
 	}
 

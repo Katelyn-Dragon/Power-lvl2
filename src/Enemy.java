@@ -7,10 +7,12 @@ import javax.imageio.ImageIO;
 
 public class Enemy extends GameObject{
 
-	boolean kShooting = true;
+	boolean crouching = false; 
+	boolean standing = true;
 	
 	
 	public static BufferedImage KJD;
+	public static BufferedImage Crouch;
 	
 	public Enemy (int x, int y) {
 		super(x,y);
@@ -18,6 +20,7 @@ public class Enemy extends GameObject{
 		try {
 			
 			KJD = ImageIO.read(this.getClass().getResourceAsStream("KJD.png"));
+			Crouch = ImageIO.read(this.getClass().getResourceAsStream("Crouch.png"));
 			
 		}  catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -30,11 +33,14 @@ public class Enemy extends GameObject{
 	}
 	
 	public void draw(Graphics g) {
-		g.drawImage(KJD, 1000, 450, null);
-		Random rand= new Random();
-		int randomNum = rand.nextInt((2-1)+1)+1;
-		if (kShooting == true) {
-			//g.drawImage(GamePanel.Shoot2Img, 1000, 450, null);
+		if (crouching == false && standing == true) {
+			g.drawImage(KJD, 1000, 470, null);
 		}
+		if (crouching == true && standing == false) {
+			g.drawImage(Crouch, 1000, 484, null);	
+		}
+//		if (kShooting == true) {
+//			//g.drawImage(GamePanel.Shoot2Img, 1000, 450, null);
+//		}
 	}
 }

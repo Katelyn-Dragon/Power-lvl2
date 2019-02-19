@@ -37,7 +37,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage Shoot2Img;
 
 	public GamePanel() {
-		humans = new Humans(70, 450);
+		humans = new Humans(70, 450, humans.width, humans.height);
 		enemies = new Enemy(1000,450);
 		robot = new Robot(350, 80);
 		objectManager = new ObjectManager(humans, robot, enemies);

@@ -9,13 +9,14 @@ public class Enemy extends GameObject{
 
 	boolean crouching = false; 
 	boolean standing = true;
-	
+	static int height = 300;
+	static int width = 100;
 	
 	public static BufferedImage KJD;
 	public static BufferedImage Crouch;
 	
 	public Enemy (int x, int y) {
-		super(x,y);
+		super(x,y,width,height);
 		
 		try {
 			
@@ -34,11 +35,13 @@ public class Enemy extends GameObject{
 	
 	public void draw(Graphics g) {
 		if (crouching == false && standing == true) {
-			g.drawImage(KJD, 1000, 470, null);
+		//	g.drawImage(KJD, x, y, null);
 		}
 		if (crouching == true && standing == false) {
-			g.drawImage(Crouch, 1000, 484, null);	
+			g.drawImage(Crouch, x, y, null);
+			System.out.println(x);
 		}
+		super.draw(g);
 //		if (kShooting == true) {
 //			//g.drawImage(GamePanel.Shoot2Img, 1000, 450, null);
 //		}

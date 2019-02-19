@@ -26,10 +26,14 @@ public class Humans extends GameObject {
 	public static BufferedImage PCY6Img;
 
 	public static BufferedImage PCY7Img;
+	
+	static int width = 99;
+	
+	static int height = 30;
 
 	
-	public Humans(int x, int y) {
-		super(x, y);
+	public Humans(int x, int y, int width, int height) {
+		super(x, y, width, height);
 		walk = new BufferedImage[7];
 
 		try {
@@ -75,6 +79,8 @@ public class Humans extends GameObject {
 		else if (isShooting == true && forwards == false && backwards == false) {
 			g.drawImage(GamePanel.ShootImg, x, y, null);
 		} 
+		
+		super.draw(g);
 		
 //		else if (isShooting == false && forwards == true && backwards == false) {
 //			if (walktimer < 50) {

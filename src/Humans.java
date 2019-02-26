@@ -27,9 +27,9 @@ public class Humans extends GameObject {
 
 	public static BufferedImage PCY7Img;
 	
-	static int width = 99;
+	static int width = 100;
 	
-	static int height = 30;
+	static int height = 250;
 
 	
 	public Humans(int x, int y, int width, int height) {

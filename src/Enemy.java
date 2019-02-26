@@ -1,4 +1,6 @@
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
@@ -9,8 +11,12 @@ public class Enemy extends GameObject{
 
 	boolean crouching = false; 
 	boolean standing = true;
-	static int height = 300;
-	static int width = 100;
+	static int height = 215;
+	static int width = 80;
+	static int x = 1000;
+	static int y = 560;
+	
+	Rectangle collisionBox;
 	
 	public static BufferedImage KJD;
 	public static BufferedImage Crouch;
@@ -27,20 +33,26 @@ public class Enemy extends GameObject{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		collisionBox = new Rectangle(x, y, width, height);
 		}
 	
 	public void update () {
 		super.update();
+		collisionBox = new Rectangle(x, y, width, height);
 	}
 	
 	public void draw(Graphics g) {
 		if (crouching == false && standing == true) {
-		//	g.drawImage(KJD, x, y, null);
+			g.drawImage(KJD, x, y, null);
 		}
 		if (crouching == true && standing == false) {
-			g.drawImage(Crouch, x, y, null);
+			g.drawImage(Crouch, 960, 500, null);
 			System.out.println(x);
 		}
+		
+		g.setColor(Color.BLUE);
+		g.drawRect(collisionBox.x, collisionBox.y, width, height);
+		
 		super.draw(g);
 //		if (kShooting == true) {
 //			//g.drawImage(GamePanel.Shoot2Img, 1000, 450, null);

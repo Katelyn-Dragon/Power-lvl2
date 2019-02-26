@@ -32,6 +32,7 @@ public class ObjectManager {
 			shots.get(i).draw(g);
 		}
 		
+		
 	}
 	
 	public void playerShot() {
@@ -40,6 +41,10 @@ public class ObjectManager {
 	}
 	
 	public void checkCollision() {
-		
+		for (int i = 0; i < shots.size(); i++) {
+			if (shots.get(i).collisionBox.intersects(enemies.collisionBox)) {
+				
+			}
+		}
 	}
 }

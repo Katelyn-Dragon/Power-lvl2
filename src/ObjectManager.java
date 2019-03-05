@@ -1,22 +1,22 @@
-import java.awt.Graphics;
+    import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class ObjectManager {
 
 	Humans humans;
-	Enemy enemies;
+	Enemy enemy;
 	Robot robot;
 	ArrayList <Shot> shots  = new ArrayList <Shot>();
 	
 	public ObjectManager(Humans human, Robot robots, Enemy enemy) {
-		humans = human;
-		enemies = enemy;
-		robot = robots;
+		this.humans = human;
+		this.enemy = enemy;
+		this.robot = robots;
 	}
 	
 	public void update() {
 		humans.update();
-		enemies.update();
+		enemy.update();
 		robot.update();
 		for (int i = 0; i < shots.size(); i++) {
 			shots.get(i).update();
@@ -26,7 +26,7 @@ public class ObjectManager {
 	
 	public void draw(Graphics g) {
 		humans.draw(g);
-		enemies.draw(g);
+		enemy.draw(g);
 		
 		for (int i = 0; i < shots.size(); i++) {
 			shots.get(i).draw(g);
@@ -42,7 +42,8 @@ public class ObjectManager {
 	
 	public void checkCollision() {
 		for (int i = 0; i < shots.size(); i++) {
-			if (shots.get(i).collisionBox.intersects(enemies.collisionBox)) {
+			if (shots.get(i).collisionBox.intersects(enemy.collisionBox)) {
+				System.out.println("intersect");
 				
 			}
 		}

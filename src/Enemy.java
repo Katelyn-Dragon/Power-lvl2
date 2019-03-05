@@ -47,7 +47,7 @@ public class Enemy extends GameObject{
 		}
 		if (crouching == true && standing == false) {
 			g.drawImage(Crouch, 960, 500, null);
-			System.out.println(x);
+			
 		}
 		
 		g.setColor(Color.BLUE);

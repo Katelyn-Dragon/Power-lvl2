@@ -50,7 +50,7 @@ public class Enemy extends GameObject{
 			
 		}
 		
-		g.setColor(Color.BLUE);
+		
 		g.drawRect(collisionBox.x, collisionBox.y, width, height);
 		
 		super.draw(g);

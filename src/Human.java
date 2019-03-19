@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Humans extends GameObject {
+public class Human extends GameObject {
 
 	boolean isShooting;
 	boolean forwards;
@@ -32,7 +32,7 @@ public class Humans extends GameObject {
 	static int height = 250;
 
 	
-	public Humans(int x, int y, int width, int height) {
+	public Human(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		walk = new BufferedImage[7];
 

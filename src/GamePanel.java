@@ -19,8 +19,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int currentState = MENU_STATE;
 
 	ObjectManager objectManager;
-	Humans humans;
-	Enemy enemies;
+	Human human;
+	Enemy enemy;
 	Robot robot;
 	Timer timer;
 
@@ -37,10 +37,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage Shoot2Img;
 
 	public GamePanel() {
-		humans = new Humans(70, 450, humans.width, humans.height);
-		enemies = new Enemy(1000,450);
+		human = new Human(70, 450, human.width, human.height);
+		enemy = new Enemy(1000,450);
 		robot = new Robot(350, 80);
-		objectManager = new ObjectManager(humans, robot, enemies);
+		objectManager = new ObjectManager(human, robot, enemy);
 		timer = new Timer(5000 / 60, this);
 		timer.start();
 
@@ -118,7 +118,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			}
 		}
 		if (key == KeyEvent.VK_SHIFT) {
-			humans.isShooting = true;
+			human.isShooting = true;
 			objectManager.playerShot();
 		} else if (key == KeyEvent.VK_RIGHT) {
 			System.out.println("right");
@@ -128,8 +128,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			//humans.backwards = true;
 		} else if (key == KeyEvent.VK_DOWN) {
 			System.out.println("down");
-			enemies.crouching = true;
-			enemies.standing = false;
+			enemy.crouching = true;
+			enemy.standing = false;
 		}
 
 		repaint();
@@ -140,14 +140,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 		System.out.println("released");
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
-			humans.isShooting = false;
+			human.isShooting = false;
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			humans.forwards = false;
+			human.forwards = false;
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			humans.backwards = false;	
+			human.backwards = false;	
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			enemies.crouching = false;
-			enemies.standing = true;
+			enemy.crouching = false;
+			enemy.standing = true;
 		}
 	}
 
@@ -161,6 +161,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void updateEndState() {
 
+	}
+	
+	public void gameOver() {
+		
 	}
 
 	public void drawMenuState(Graphics g) {

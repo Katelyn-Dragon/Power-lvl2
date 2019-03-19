@@ -3,12 +3,12 @@ import java.util.ArrayList;
 
 public class ObjectManager {
 
-	Humans humans;
+	Human humans;
 	Enemy enemy;
 	Robot robot;
 	ArrayList <Shot> shots  = new ArrayList <Shot>();
 	
-	public ObjectManager(Humans human, Robot robots, Enemy enemy) {
+	public ObjectManager(Human human, Robot robots, Enemy enemy) {
 		this.humans = human;
 		this.enemy = enemy;
 		this.robot = robots;

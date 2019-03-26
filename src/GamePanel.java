@@ -79,6 +79,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
+			if (!enemy.isAlive) {
+				currentState = END_STATE;
+				enemy.isAlive = true;
+			}
 			updateGameState();
 		} else if (currentState == END_STATE) {
 			updateEndState();

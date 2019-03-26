@@ -11,6 +11,7 @@ public class Enemy extends GameObject{
 
 	boolean crouching = false; 
 	boolean standing = true;
+	boolean isAlive = true;
 	static int height = 215;
 	static int width = 80;
 	static int x = 1000;
@@ -47,11 +48,9 @@ public class Enemy extends GameObject{
 		}
 		if (crouching == true && standing == false) {
 			g.drawImage(Crouch, 960, 500, null);
-			
+			collisionBox = new Rectangle(x,y,height,width);
 		}
 		
-		
-		g.drawRect(collisionBox.x, collisionBox.y, width, height);
 		
 		super.draw(g);
 //		if (kShooting == true) {

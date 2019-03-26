@@ -25,9 +25,9 @@ public class ObjectManager {
 	}
 	
 	public void draw(Graphics g) {
+		checkCollision();
 		humans.draw(g);
 		enemy.draw(g);
-		checkCollision();
 		for (int i = 0; i < shots.size(); i++) {
 			shots.get(i).draw(g);
 		}
@@ -44,9 +44,10 @@ public class ObjectManager {
 		for (int i = 0; i < shots.size(); i++) {
 			if (shots.get(i).collisionBox.intersects(enemy.collisionBox)) {
 				System.out.println("intersect");
+				enemy.isAlive = false;
 				return true;
 			}
-		}
+					}
 		return false;
 	}
 }

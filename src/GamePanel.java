@@ -33,12 +33,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage RobotImg;
 
 	public static BufferedImage ShootImg;
-	
+
 	public static BufferedImage Shoot2Img;
 
 	public GamePanel() {
 		human = new Human(70, 450, human.width, human.height);
-		enemy = new Enemy(1000,450);
+		enemy = new Enemy(1000, 450);
 		robot = new Robot(350, 80);
 		objectManager = new ObjectManager(human, robot, enemy);
 		timer = new Timer(5000 / 60, this);
@@ -55,7 +55,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			RobotImg = ImageIO.read(this.getClass().getResourceAsStream("Robot.png"));
 
 			ShootImg = ImageIO.read(this.getClass().getResourceAsStream("Shoot.png"));
-			
+
 			Shoot2Img = ImageIO.read(this.getClass().getResourceAsStream("Shoot2.png"));
 
 		} catch (IOException e) {
@@ -121,19 +121,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				currentState = END_STATE;
 			}
 		}
-		if (key == KeyEvent.VK_SHIFT) {
+		if (key == KeyEvent.VK_SHIFT && currentState == GAME_STATE) {
 			human.isShooting = true;
 			objectManager.playerShot();
 		} else if (key == KeyEvent.VK_RIGHT) {
 			System.out.println("right");
-			//humans.forwards = true;
+			// humans.forwards = true;
 		} else if (key == KeyEvent.VK_LEFT) {
 			System.out.println("left");
-			//humans.backwards = true;
+			// humans.backwards = true;
 		} else if (key == KeyEvent.VK_DOWN) {
 			System.out.println("down");
 			enemy.crouching = true;
 			enemy.standing = false;
+		} else if (key == KeyEvent.VK_SHIFT && currentState == MENU_STATE && currentState == END_STATE) {
+			human.isShooting = false;
 		}
 
 		repaint();
@@ -148,7 +150,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			human.forwards = false;
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			human.backwards = false;	
+			human.backwards = false;
 		} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			enemy.crouching = false;
 			enemy.standing = true;
@@ -166,9 +168,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void updateEndState() {
 
 	}
-	
+
 	public void gameOver() {
-		
+
 	}
 
 	public void drawMenuState(Graphics g) {

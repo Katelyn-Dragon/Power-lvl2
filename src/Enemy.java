@@ -40,14 +40,17 @@ public class Enemy extends GameObject {
 	public void update() {
 		super.update();
 		collisionBox = new Rectangle(x, y, width, height);
+		System.out.println(height);
 	}
 
 	public void draw(Graphics g) {
 		if (crouching == false && standing == true) {
 			g.drawImage(KJD, x, y, null);
+			height = 215;
 		}
 		if (crouching == true && standing == false) {
 			g.drawImage(Crouch, 960, 500, null);
+			height = 10;
 		}
 
 		super.draw(g);

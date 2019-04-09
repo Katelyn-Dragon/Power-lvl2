@@ -1,0 +1,29 @@
+*<*GAMETITLE*>*
+Power
+*<*NAME*>*
+Katelyn 
+*<*LINK*>*
+
+*<*IMAGES*>*
+*<*ENDALLIMAGES*>*
+*<*FONT*>*
+Pacifico
+*<*COLORS*>*
+220
+220
+220
+*<*QUESTIONS*>*
+I saw an animation made about one of my favorite music artists and what their music video would've looked liked if made into a game; I was really inspired to make it into an actual game so when I was given the opportunity to, I decided to make it.
+*<*ENDQUESTION*>*
+I made changes to my game based on how long it would take to implement certain aspects of the game.
+*<*ENDQUESTION*>*
+I made different classes based on what objects I'm going to implement in the game and what functions I needed each object to have. I made classes of the different objects and they are all extensions of the 'Object Manager' class which controls what the objects do.
+*<*ENDQUESTION*>*
+One particular aspect I am proud of in this game is the art used for both the background, menu screens, and character models. They are all made by me and took a long time to make them. They aren't random pixel art on the internet you can download, I used references from the video that inspired me .
+*<*ENDQUESTION*>*
+The most challenging part of this project was deciding what I wanted to do with my game after I've made multiple changes to it. I had many ideas I wanted to do in the beginning but were too complicated to implement so I've had to scrap many ideas and create something new which created a very minimalistic game that I lost passion for, I wanted to give up many times and move on without finishing it but I eventually got close enough and decided to finish it.
+*<*ENDQUESTION*>*
+I would come back and create more characters that can be selected by either player. I would also put my walking animation back into my game that way it would be put to good use and not be thrown away. I also want to make the game more complex and have a better purpose than to just try to kill the other player and the other player try to stay alive.
+*<*ENDQUESTION*>*
+*<*CUSTOMTOPICS*>*
+*#*EOF*#*

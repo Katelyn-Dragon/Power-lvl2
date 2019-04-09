@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		try {
 
-			PowerImg = ImageIO.read(this.getClass().getResourceAsStream("Power.menu.png"));
+			PowerImg = ImageIO.read(this.getClass().getResourceAsStream("Power-menu.png"));
 
 			BackgroundImg = ImageIO.read(this.getClass().getResourceAsStream("Background.png"));
 
